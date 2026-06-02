@@ -1,45 +1,164 @@
-alert("app.js loaded");
+// ===========================
+// PAGE NAVIGATION
+// ===========================
+
 function showPage(page) {
 
-    document.getElementById("dashboardPage").style.display = "none";
-    document.getElementById("settingsPage").style.display = "none";
+```
+document.getElementById("dashboardPage").style.display = "none";
+document.getElementById("settingsPage").style.display = "none";
 
-    if (page === "dashboard") {
-        document.getElementById("dashboardPage").style.display = "block";
-    }
-
-    if (page === "settings") {
-        document.getElementById("settingsPage").style.display = "block";
-    }
+if (page === "dashboard") {
+    document.getElementById("dashboardPage").style.display = "block";
 }
+
+if (page === "settings") {
+    document.getElementById("settingsPage").style.display = "block";
+}
+```
+
+}
+
+// ===========================
+// SETTINGS
+// ===========================
 
 function saveSettings() {
 
-    const settings = {
-        officeName: document.getElementById("officeName").value,
-        officeCode: document.getElementById("officeCode").value
-    };
+```
+const settings = {
 
-    localStorage.setItem(
-        "hyperworkSettings",
-        JSON.stringify(settings)
+    officeName:
+        document.getElementById("officeName").value,
+
+    officeCode:
+        document.getElementById("officeCode").value
+
+};
+
+localStorage.setItem(
+    "hyperworkSettings",
+    JSON.stringify(settings)
+);
+
+alert("Settings Saved Successfully");
+```
+
+}
+
+// ===========================
+// SECTION MASTER
+// ===========================
+
+let sections =
+JSON.parse(
+localStorage.getItem("sections")
+) || [];
+
+function addSection() {
+
+```
+let code =
+    document.getElementById("sectionCode")
+    .value
+    .trim()
+    .toUpperCase();
+
+let name =
+    document.getElementById("sectionName")
+    .value
+    .trim();
+
+if (code === "" || name === "") {
+
+    alert(
+        "Please enter both Code and Description"
     );
 
-    alert("Settings Saved");
+    return;
 }
+
+sections.push({
+    code: code,
+    name: name
+});
+
+localStorage.setItem(
+    "sections",
+    JSON.stringify(sections)
+);
+
+displaySections();
+
+document.getElementById("sectionCode").value = "";
+document.getElementById("sectionName").value = "";
+```
+
+}
+
+function displaySections() {
+
+```
+let html = "";
+
+if (sections.length === 0) {
+
+    html =
+        "<p>No section codes added.</p>";
+
+} else {
+
+    sections.forEach((section, index) => {
+
+        html += `
+            <div style="
+                padding:8px;
+                border-bottom:1px solid #ddd;
+            ">
+                <strong>${section.code}</strong>
+                - ${section.name}
+            </div>
+        `;
+
+    });
+}
+
+document.getElementById(
+    "sectionList"
+).innerHTML = html;
+```
+
+}
+
+// ===========================
+// LOAD SAVED DATA
+// ===========================
 
 window.onload = function () {
 
-    let data = localStorage.getItem("hyperworkSettings");
+```
+let data =
+    localStorage.getItem(
+        "hyperworkSettings"
+    );
 
-    if (data) {
+if (data) {
 
-        let settings = JSON.parse(data);
+    let settings =
+        JSON.parse(data);
 
-        document.getElementById("officeName").value =
-            settings.officeName || "";
+    document.getElementById(
+        "officeName"
+    ).value =
+        settings.officeName || "";
 
-        document.getElementById("officeCode").value =
-            settings.officeCode || "";
-    }
+    document.getElementById(
+        "officeCode"
+    ).value =
+        settings.officeCode || "";
+}
+
+displaySections();
+```
+
 };
