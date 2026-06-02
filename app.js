@@ -1,21 +1,20 @@
-function showPage(page){
+function showPage(page) {
 
     document.getElementById("dashboardPage").style.display = "none";
     document.getElementById("settingsPage").style.display = "none";
 
-    if(page === "dashboard"){
+    if (page === "dashboard") {
         document.getElementById("dashboardPage").style.display = "block";
     }
 
-    if(page === "settings"){
+    if (page === "settings") {
         document.getElementById("settingsPage").style.display = "block";
     }
-
 }
 
-function saveSettings(){
+function saveSettings() {
 
-    let settings = {
+    const settings = {
         officeName: document.getElementById("officeName").value,
         officeCode: document.getElementById("officeCode").value
     };
@@ -26,14 +25,13 @@ function saveSettings(){
     );
 
     alert("Settings Saved");
-
 }
 
-window.onload = function(){
+window.onload = function () {
 
     let data = localStorage.getItem("hyperworkSettings");
 
-    if(data){
+    if (data) {
 
         let settings = JSON.parse(data);
 
@@ -43,5 +41,4 @@ window.onload = function(){
         document.getElementById("officeCode").value =
             settings.officeCode || "";
     }
-
-}
+};
