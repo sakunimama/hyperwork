@@ -1,3 +1,4 @@
+alert("app.js loaded");
 function showPage(page) {
 
     document.getElementById("dashboardPage").style.display = "none";
