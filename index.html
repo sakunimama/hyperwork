@@ -1,31 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hyperwork</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
 <div class="sidebar">
+
     <h2>Hyperwork</h2>
 
     <ul>
-        <li>🏠 Dashboard</li>
+        <li onclick="showPage('dashboard')">🏠 Dashboard</li>
         <li>📤 Outward Letters</li>
         <li>📊 Reports</li>
-        <li>⚙️ Settings</li>
+        <li onclick="showPage('settings')">⚙️ Settings</li>
     </ul>
+
 </div>
 
 <div class="main">
-    <h1>Welcome to Hyperwork</h1>
 
-    <div class="cards">
-        <div class="card">
-            <h3>Total Letters</h3>
-            <p>0</p>
+    <!-- Dashboard Page -->
+
+    <div id="dashboardPage">
+
+        <h1>Dashboard</h1>
+
+        <div class="cards">
+
+            <div class="card">
+                <h3>Total Letters</h3>
+                <p>0</p>
+            </div>
+
+            <div class="card">
+                <h3>Pending Ack</h3>
+                <p>0</p>
+            </div>
+
+            <div class="card">
+                <h3>Delivered</h3>
+                <p>0</p>
+            </div>
+
         </div>
 
-        <div class="card">
-            <h3>Pending Ack</h3>
-            <p>0</p>
-        </div>
-
-        <div class="card">
-            <h3>Delivered</h3>
-            <p>0</p>
-        </div>
     </div>
+
+    <!-- Settings Page -->
+
+    <div id="settingsPage" style="display:none;">
+
+        <h1>Settings</h1>
+
+        <div class="card">
+
+            <h3>Office Information</h3>
+
+            <br>
+
+            <label>Office Name</label>
+
+            <br><br>
+
+            <input
+                type="text"
+                id="officeName"
+                placeholder="Howraghat Electrical Sub-Division"
+            >
+
+            <br><br>
+
+            <label>Office Code</label>
+
+            <br><br>
+
+            <input
+                type="text"
+                id="officeCode"
+                placeholder="HESD"
+            >
+
+            <br><br>
+
+            <button onclick="saveSettings()">
+                Save Settings
+            </button>
+
+        </div>
+
+    </div>
+
 </div>
+
+<script src="app.js"></script>
+
+</body>
+</html>
