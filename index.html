@@ -1,18 +1,177 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Hyperwork</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hyperwork</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Segoe UI,sans-serif;
+}
+
+body{
+    display:flex;
+    background:#f4f6f9;
+}
+
+.sidebar{
+    width:250px;
+    height:100vh;
+    background:#1e293b;
+    color:white;
+    padding:20px;
+}
+
+.logo{
+    font-size:24px;
+    font-weight:bold;
+    margin-bottom:30px;
+}
+
+.menu a{
+    display:block;
+    color:white;
+    text-decoration:none;
+    padding:12px;
+    margin-bottom:10px;
+    border-radius:8px;
+}
+
+.menu a:hover{
+    background:#334155;
+}
+
+.main{
+    flex:1;
+    padding:20px;
+}
+
+.header{
+    background:white;
+    padding:15px;
+    border-radius:10px;
+    box-shadow:0 2px 5px rgba(0,0,0,0.1);
+}
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
+    margin-top:20px;
+}
+
+.card{
+    background:white;
+    padding:20px;
+    border-radius:10px;
+    box-shadow:0 2px 5px rgba(0,0,0,0.1);
+}
+
+.card h3{
+    color:#666;
+}
+
+.card p{
+    font-size:28px;
+    margin-top:10px;
+    font-weight:bold;
+}
+
+.table-box{
+    margin-top:25px;
+    background:white;
+    padding:20px;
+    border-radius:10px;
+    box-shadow:0 2px 5px rgba(0,0,0,0.1);
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+th,td{
+    border:1px solid #ddd;
+    padding:10px;
+}
+
+th{
+    background:#f1f5f9;
+}
+</style>
 </head>
+
 <body>
-    <h1>Hyperwork</h1>
-    <p>APDCL Outward Letter Management System</p>
 
-    <h2>Dashboard</h2>
+<div class="sidebar">
+    <div class="logo">Hyperwork</div>
 
-    <ul>
-        <li>Total Letters: 0</li>
-        <li>Pending Acknowledgements: 0</li>
-        <li>Current FY Letters: 0</li>
-    </ul>
+    <div class="menu">
+        <a href="#">🏠 Dashboard</a>
+        <a href="#">📤 Outward Letters</a>
+        <a href="#">📊 Reports</a>
+        <a href="#">⚙️ Settings</a>
+    </div>
+</div>
+
+<div class="main">
+
+    <div class="header">
+        <h2>Howraghat Electrical Sub-Division</h2>
+        <p>Sub-Divisional Engineer (SDE)</p>
+    </div>
+
+    <div class="cards">
+
+        <div class="card">
+            <h3>Total Letters</h3>
+            <p>0</p>
+        </div>
+
+        <div class="card">
+            <h3>Current FY</h3>
+            <p>0</p>
+        </div>
+
+        <div class="card">
+            <h3>Delivered</h3>
+            <p>0</p>
+        </div>
+
+        <div class="card">
+            <h3>Pending Ack</h3>
+            <p>0</p>
+        </div>
+
+    </div>
+
+    <div class="table-box">
+        <h3>Recent Letters</h3>
+
+        <br>
+
+        <table>
+            <tr>
+                <th>Letter No</th>
+                <th>Date</th>
+                <th>Recipient</th>
+                <th>Status</th>
+            </tr>
+
+            <tr>
+                <td colspan="4" align="center">
+                    No records found
+                </td>
+            </tr>
+        </table>
+
+    </div>
+
+</div>
+
 </body>
 </html>
