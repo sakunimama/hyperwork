@@ -49,6 +49,78 @@ alert("Settings Saved Successfully");
 // ===========================
 // SECTION MASTER
 // ===========================
+// ===========================
+// RECIPIENT DIRECTORY
+// ===========================
+
+let recipients =
+JSON.parse(
+localStorage.getItem("recipients")
+) || [];
+
+function addRecipient() {
+
+```
+let name =
+    document.getElementById("recipientName")
+    .value
+    .trim();
+
+if (name === "") {
+
+    alert("Enter Recipient Name");
+
+    return;
+}
+
+recipients.push(name);
+
+localStorage.setItem(
+    "recipients",
+    JSON.stringify(recipients)
+);
+
+displayRecipients();
+
+document.getElementById(
+    "recipientName"
+).value = "";
+```
+
+}
+
+function displayRecipients() {
+
+```
+let html = "";
+
+if (recipients.length === 0) {
+
+    html =
+        "<p>No recipients added.</p>";
+
+} else {
+
+    recipients.forEach((recipient) => {
+
+        html += `
+            <div style="
+                padding:8px;
+                border-bottom:1px solid #ddd;
+            ">
+                ${recipient}
+            </div>
+        `;
+    });
+}
+
+document.getElementById(
+    "recipientList"
+).innerHTML = html;
+```
+
+}
+
 
 let sections =
 JSON.parse(
