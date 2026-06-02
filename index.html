@@ -1,32 +1,48 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Hyperwork</title>
 
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hyperwork</title>
+
+```
 <link rel="stylesheet" href="style.css">
+```
 
 </head>
 
 <body>
 
+```
 <div class="sidebar">
 
     <h2>Hyperwork</h2>
 
     <ul>
-        <li onclick="showPage('dashboard')">🏠 Dashboard</li>
-        <li>📤 Outward Letters</li>
-        <li>📊 Reports</li>
-        <li onclick="showPage('settings')">⚙️ Settings</li>
+        <li onclick="showPage('dashboard')">
+            🏠 Dashboard
+        </li>
+
+        <li>
+            📤 Outward Letters
+        </li>
+
+        <li>
+            📊 Reports
+        </li>
+
+        <li onclick="showPage('settings')">
+            ⚙️ Settings
+        </li>
     </ul>
 
 </div>
 
 <div class="main">
 
-    <!-- Dashboard Page -->
+    <!-- DASHBOARD PAGE -->
 
     <div id="dashboardPage">
 
@@ -53,11 +69,13 @@
 
     </div>
 
-    <!-- Settings Page -->
+    <!-- SETTINGS PAGE -->
 
     <div id="settingsPage" style="display:none;">
 
         <h1>Settings</h1>
+
+        <!-- OFFICE INFORMATION -->
 
         <div class="card">
 
@@ -95,11 +113,49 @@
 
         </div>
 
+        <br>
+
+        <!-- SECTION MASTER -->
+
+        <div class="card">
+
+            <h3>Section Codes</h3>
+
+            <br>
+
+            <input
+                type="text"
+                id="sectionCode"
+                placeholder="Code (ESTT)"
+            >
+
+            <br><br>
+
+            <input
+                type="text"
+                id="sectionName"
+                placeholder="Description (Estimate)"
+            >
+
+            <br><br>
+
+            <button onclick="addSection()">
+                Add Section
+            </button>
+
+            <br><br>
+
+            <div id="sectionList"></div>
+
+        </div>
+
     </div>
 
 </div>
 
 <script src="app.js"></script>
+```
 
 </body>
+
 </html>
