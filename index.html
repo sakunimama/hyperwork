@@ -86,9 +86,45 @@
             </div>
 
             <div id="documents" class="content-page">
-                <h2>Document Management</h2>
-            </div>
 
+    <h2>Document Management</h2>
+
+    <br>
+
+    <input type="text" id="docNumber" placeholder="Document Number">
+
+    <input type="text" id="docSubject" placeholder="Subject">
+
+    <input type="text" id="docFrom" placeholder="From">
+
+    <button onclick="addDocument()">
+        Add Document
+    </button>
+
+    <br><br>
+
+    <table id="documentTable" border="1" width="100%">
+
+        <thead>
+
+            <tr>
+                <th>Sl No</th>
+                <th>Document No</th>
+                <th>Subject</th>
+                <th>From</th>
+                <th>Action</th>
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+        </tbody>
+
+    </table>
+
+</div>
+            
             <div id="tasks" class="content-page">
                 <h2>Task Management</h2>
             </div>
