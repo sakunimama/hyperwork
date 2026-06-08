@@ -1,187 +1,125 @@
 <!DOCTYPE html>
-
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hyperwork</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hyperwork</title>
 
-```
 <link rel="stylesheet" href="style.css">
-```
-
 </head>
 
 <body>
 
-```
-<div class="sidebar">
+<!-- Login Screen -->
 
-    <h2>Hyperwork</h2>
+<div id="loginPage" class="page active">
 
-    <ul>
-        <li onclick="showPage('dashboard')">
-            🏠 Dashboard
-        </li>
+    <div class="login-box">
+        <h1>Hyperwork</h1>
 
-        <li>
-            📤 Outward Letters
-        </li>
+        <input type="text" id="username" placeholder="Username">
 
-        <li>
-            📊 Reports
-        </li>
+        <input type="password" id="password" placeholder="Password">
 
-        <li onclick="showPage('settings')">
-            ⚙️ Settings
-        </li>
-    </ul>
-
-</div>
-
-<div class="main">
-
-    <!-- DASHBOARD PAGE -->
-
-    <div id="dashboardPage">
-
-        <h1>Dashboard</h1>
-
-        <div class="cards">
-
-            <div class="card">
-                <h3>Total Letters</h3>
-                <p>0</p>
-            </div>
-
-            <div class="card">
-                <h3>Pending Ack</h3>
-                <p>0</p>
-            </div>
-
-            <div class="card">
-                <h3>Delivered</h3>
-                <p>0</p>
-            </div>
-
-        </div>
-
+        <button onclick="login()">Login</button>
     </div>
 
-    <!-- SETTINGS PAGE -->
-
-    <div id="settingsPage" style="display:none;">
-
-        <h1>Settings</h1>
-
-        <!-- OFFICE INFORMATION -->
-
-        <div class="card">
-
-            <h3>Office Information</h3>
-
-            <br>
-
-            <label>Office Name</label>
-
-            <br><br>
-
-            <input
-                type="text"
-                id="officeName"
-                placeholder="Howraghat Electrical Sub-Division"
-            >
-
-            <br><br>
-
-            <label>Office Code</label>
-
-            <br><br>
-
-            <input
-                type="text"
-                id="officeCode"
-                placeholder="HESD"
-            >
-
-            <br><br>
-
-            <button onclick="saveSettings()">
-                Save Settings
-            </button>
-
-        </div>
-
-        <br>
-
-        <!-- SECTION MASTER -->
-
-        <div class="card">
-            <div class="card">
-
-```
-<h3>Recipient Directory</h3>
-
-<br>
-
-<input
-    type="text"
-    id="recipientName"
-    placeholder="Recipient Name"
->
-
-<br><br>
-
-<button onclick="addRecipient()">
-    Add Recipient
-</button>
-
-<br><br>
-
-<div id="recipientList"></div>
-```
-
 </div>
 
+<!-- Main App -->
 
-            <h3>Section Codes</h3>
+<div id="mainPage" class="page">
 
-            <br>
+    <header>
 
-            <input
-                type="text"
-                id="sectionCode"
-                placeholder="Code (ESTT)"
-            >
+        <h2>Hyperwork</h2>
 
-            <br><br>
+        <span>Sub-Divisional Engineer (SDE)</span>
 
-            <input
-                type="text"
-                id="sectionName"
-                placeholder="Description (Estimate)"
-            >
+        <button onclick="logout()">Logout</button>
 
-            <br><br>
+    </header>
 
-            <button onclick="addSection()">
-                Add Section
+    <div class="container">
+
+        <aside>
+
+            <button onclick="showPage('dashboard')">
+                Dashboard
             </button>
 
-            <br><br>
+            <button onclick="showPage('documents')">
+                Documents
+            </button>
 
-            <div id="sectionList"></div>
+            <button onclick="showPage('tasks')">
+                Tasks
+            </button>
 
-        </div>
+            <button onclick="showPage('forwarding')">
+                Forwarding Register
+            </button>
+
+            <button onclick="showPage('estimates')">
+                Estimates
+            </button>
+
+            <button onclick="showPage('letters')">
+                Letters
+            </button>
+
+            <button onclick="showPage('reports')">
+                Reports
+            </button>
+
+            <button onclick="showPage('settings')">
+                Settings
+            </button>
+
+        </aside>
+
+        <main>
+
+            <div id="dashboard" class="content-page active-content">
+                <h2>Dashboard</h2>
+                <p>Welcome to Hyperwork.</p>
+            </div>
+
+            <div id="documents" class="content-page">
+                <h2>Document Management</h2>
+            </div>
+
+            <div id="tasks" class="content-page">
+                <h2>Task Management</h2>
+            </div>
+
+            <div id="forwarding" class="content-page">
+                <h2>Forwarding Register</h2>
+            </div>
+
+            <div id="estimates" class="content-page">
+                <h2>Estimate Management</h2>
+            </div>
+
+            <div id="letters" class="content-page">
+                <h2>Letter Generation</h2>
+            </div>
+
+            <div id="reports" class="content-page">
+                <h2>Reports</h2>
+            </div>
+
+            <div id="settings" class="content-page">
+                <h2>Settings</h2>
+            </div>
+
+        </main>
 
     </div>
 
 </div>
 
 <script src="app.js"></script>
-```
 
 </body>
-
 </html>
