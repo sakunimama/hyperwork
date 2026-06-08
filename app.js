@@ -1,236 +1,54 @@
-// ===========================
-// PAGE NAVIGATION
-// ===========================
+const USERNAME = "admin";
+const PASSWORD = "1234";
 
-function showPage(page) {
+function login() {
 
-```
-document.getElementById("dashboardPage").style.display = "none";
-document.getElementById("settingsPage").style.display = "none";
+    let user =
+        document.getElementById("username").value;
 
-if (page === "dashboard") {
-    document.getElementById("dashboardPage").style.display = "block";
-}
+    let pass =
+        document.getElementById("password").value;
 
-if (page === "settings") {
-    document.getElementById("settingsPage").style.display = "block";
-}
-```
+    if(user === USERNAME && pass === PASSWORD){
 
-}
+        document
+        .getElementById("loginPage")
+        .classList.remove("active");
 
-// ===========================
-// SETTINGS
-// ===========================
+        document
+        .getElementById("mainPage")
+        .classList.add("active");
 
-function saveSettings() {
-
-```
-const settings = {
-
-    officeName:
-        document.getElementById("officeName").value,
-
-    officeCode:
-        document.getElementById("officeCode").value
-
-};
-
-localStorage.setItem(
-    "hyperworkSettings",
-    JSON.stringify(settings)
-);
-
-alert("Settings Saved Successfully");
-```
+    }
+    else{
+        alert("Invalid Login");
+    }
 
 }
 
-// ===========================
-// SECTION MASTER
-// ===========================
-// ===========================
-// RECIPIENT DIRECTORY
-// ===========================
+function logout(){
 
-let recipients =
-JSON.parse(
-localStorage.getItem("recipients")
-) || [];
+    document
+    .getElementById("mainPage")
+    .classList.remove("active");
 
-function addRecipient() {
-
-```
-let name =
-    document.getElementById("recipientName")
-    .value
-    .trim();
-
-if (name === "") {
-
-    alert("Enter Recipient Name");
-
-    return;
-}
-
-recipients.push(name);
-
-localStorage.setItem(
-    "recipients",
-    JSON.stringify(recipients)
-);
-
-displayRecipients();
-
-document.getElementById(
-    "recipientName"
-).value = "";
-```
+    document
+    .getElementById("loginPage")
+    .classList.add("active");
 
 }
 
-function displayRecipients() {
+function showPage(pageId){
 
-```
-let html = "";
+    let pages =
+    document.querySelectorAll(".content-page");
 
-if (recipients.length === 0) {
-
-    html =
-        "<p>No recipients added.</p>";
-
-} else {
-
-    recipients.forEach((recipient) => {
-
-        html += `
-            <div style="
-                padding:8px;
-                border-bottom:1px solid #ddd;
-            ">
-                ${recipient}
-            </div>
-        `;
+    pages.forEach(page=>{
+        page.classList.remove("active-content");
     });
-}
 
-document.getElementById(
-    "recipientList"
-).innerHTML = html;
-```
+    document
+    .getElementById(pageId)
+    .classList.add("active-content");
 
 }
-
-
-let sections =
-JSON.parse(
-localStorage.getItem("sections")
-) || [];
-
-function addSection() {
-
-```
-let code =
-    document.getElementById("sectionCode")
-    .value
-    .trim()
-    .toUpperCase();
-
-let name =
-    document.getElementById("sectionName")
-    .value
-    .trim();
-
-if (code === "" || name === "") {
-
-    alert(
-        "Please enter both Code and Description"
-    );
-
-    return;
-}
-
-sections.push({
-    code: code,
-    name: name
-});
-
-localStorage.setItem(
-    "sections",
-    JSON.stringify(sections)
-);
-
-displaySections();
-
-document.getElementById("sectionCode").value = "";
-document.getElementById("sectionName").value = "";
-```
-
-}
-
-function displaySections() {
-
-```
-let html = "";
-
-if (sections.length === 0) {
-
-    html =
-        "<p>No section codes added.</p>";
-
-} else {
-
-    sections.forEach((section, index) => {
-
-        html += `
-            <div style="
-                padding:8px;
-                border-bottom:1px solid #ddd;
-            ">
-                <strong>${section.code}</strong>
-                - ${section.name}
-            </div>
-        `;
-
-    });
-}
-
-document.getElementById(
-    "sectionList"
-).innerHTML = html;
-```
-
-}
-
-// ===========================
-// LOAD SAVED DATA
-// ===========================
-
-window.onload = function () {
-
-```
-let data =
-    localStorage.getItem(
-        "hyperworkSettings"
-    );
-
-if (data) {
-
-    let settings =
-        JSON.parse(data);
-
-    document.getElementById(
-        "officeName"
-    ).value =
-        settings.officeName || "";
-
-    document.getElementById(
-        "officeCode"
-    ).value =
-        settings.officeCode || "";
-}
-
-displaySections();
-```
-
-};
